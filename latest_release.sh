@@ -6,7 +6,11 @@ REPO_NAME="tmiland/latest-release"
 SCRIPT_NAME="Latest Release.sh"
 # Set update check
 UPDATE_SCRIPT='check'
-
+## Uncomment for debugging purpose
+#set -o errexit
+#set -o pipefail
+#set -o nounset
+#set -o xtrace
 SCRIPT_FILENAME=$(basename $0)
 cd - > /dev/null
 sfp=$(readlink -f "${BASH_SOURCE[0]}" 2>/dev/null || greadlink -f "${BASH_SOURCE[0]}" 2>/dev/null)

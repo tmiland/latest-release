@@ -88,8 +88,22 @@ get_latest_release_title() {
 
 RELEASE_TITLE=$(get_latest_release_title ${REPO_NAME})
 
+##
+# Header
+##
+header () {
+  echo -e "${GREEN}\n"
+  echo ' ╔═══════════════════════════════════════════════════════════════════╗'
+  echo ' ║                        '${SCRIPT_NAME}'                          ║'
+  echo ' ║            Check for latest release from a GitHub repo            ║'
+  echo ' ║                      Maintained by @tmiland                       ║'
+  echo ' ║                          version: '${version}'                           ║'
+  echo ' ╚═══════════════════════════════════════════════════════════════════╝'
+  echo -e "${NC}"
+}
 # Update banner
 show_update_banner () {
+  header
   echo "Welcome to the ${SCRIPT_NAME} script."
   echo ""
   echo "There is a newer version of ${SCRIPT_NAME} available."
@@ -128,7 +142,6 @@ update_updater () {
         exit 1 # Update available, user chooses to update
       fi
       if [[ $REPLY =~ ^[Nn]$ ]]; then
-        show_banner
         return 1 # Update available, but user chooses not to update
       fi
     fi

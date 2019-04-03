@@ -149,7 +149,7 @@ get_updater_version () {
   echo $(sed -n '2 s/[^0-9.]*\([0-9.]*\).*/\1/p' "$1")
 }
 ##
-# Update invidious_update.sh
+# Update script
 ##
 # Default: Check for update, if available, ask user if they want to execute it
 update_updater () {
